@@ -1,0 +1,4 @@
+volume=0.1
+hue=0.50349997589364
+scale=6
+fullscreen=false

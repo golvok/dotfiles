@@ -1,0 +1,17 @@
+[user]
+	email = walkerm930@gmail.com
+	name = Matthew J.P. Walker
+[push]
+	default = simple
+[alias]
+	st = status
+	diffc = diff --cached
+	loga = log --graph --oneline --all
+	stashk = shash --keep-index
+[core]
+	excludesfile = /home/matt/.gitignore_global
+[gui]
+	warndetachedcommit = true
+	spellingdictionary = none
+[rerere]
+	enabled = true

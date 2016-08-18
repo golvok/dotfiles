@@ -1,10 +1,12 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
 		"ARM Assembly",
+		"C++YouCompleteMe",
 		"Dayle Rees Color Schemes",
 		"HexViewer",
 		"MIPS Syntax",

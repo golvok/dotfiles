@@ -5,7 +5,14 @@ if [ -s ~/.Xmodmap ]; then
 fi
 
 nm-applet &
-( ( sleep 10 && qbat) & )
+#( ( sleep 10 && qbat) & )
 blueman-applet &
-( ( sleep 10 && /usr/bin/xscreensaver -no-splash -display :0.0 ) & )
-exec awesome
+#( ( sleep 10 && /usr/bin/xscreensaver -no-splash -display :0.0 ) & )
+#exec awesome
+#xterm &
+#exec twm
+
+dunst &
+exec i3
+
+

@@ -41,7 +41,7 @@ end
 beautiful.init("/home/matt/.config/awesome/themes/matt/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "terminator"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -98,7 +98,7 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", terminal },
-                                    { "toggle screen,", "/home/matt/bin/togglekeyboard"}
+                                    { "toggle screen", "/home/matt/bin/togglekeyboard"}
                                   }
                         })
 
@@ -273,12 +273,21 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+    awful.key({ modkey,         }, "h"  , function()
+        local new_screen_num = mouse.screen + 1;
+        if new_screen_num > screen.count() then
+          new_screen_num = 1;
+        end
+        awful.screen.focus(new_screen_num);
+      end
+    )
 )
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
+    awful.key({ modkey, "Shift"   }, "'",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
@@ -364,42 +373,6 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Startup program locations.
-    { rule = { class = "Firefox" },
-      properties = {}, callback = function (c)
-                                 if not skipMovingFF then
-                                     awful.client.movetotag(tags[1][1], c)
-                                     skipMovingFF = true
-                                 end
-                             end },
-    { rule = { class = "Thunderbird" },
-      properties = {}, callback = function (c)
-                                 if not skipMovingTB then
-                                     awful.client.movetotag(tags[1][5], c)
-                                     skipMovingTB = true
-                                 end
-                             end },
-    { rule = { class = "Nautilus" },
-      properties = {}, callback = function (c)
-                                 if not skipMovingNautilus then
-                                     awful.client.movetotag(tags[1][3], c)
-                                     skipMovingNautilus = true
-                                 end
-                             end },
-    { rule = { class = "subl3" },
-      properties = {}, callback = function (c)
-                                 if not skipMovingSubl then
-                                     awful.client.movetotag(tags[1][4], c)
-                                     skipMovingSubl = true
-                                 end
-                             end },
-    { rule = { class = "gnome-terminal-server" },
-      properties = {}, callback = function (c)
-                                 if not skipMovingTerminal then
-                                     awful.client.movetotag(tags[1][4], c)
-                                     skipMovingTerminal = true
-                                 end
-                             end },
 }
 -- }}}
 
@@ -479,11 +452,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 do
   local cmds =
   {
-    "firefox",
-    -- "subl3",
-    "thunderbird",
-    "nautilus",
-    "gnome-terminal --window --tab --tab"
   }
 
   for _,i in pairs(cmds) do

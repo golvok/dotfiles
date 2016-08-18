@@ -67,7 +67,27 @@
 		"rect",
 		"unrotated",
 		"accessor",
-		"algo"
+		"algo",
+		"downtown",
+		"Hasidic",
+		"Chateau",
+		"Google",
+		"checkbox",
+		"train's",
+		"const",
+		"parallelizable",
+		"src",
+		"dest",
+		"sidewalk",
+		"Alot",
+		"sidewalks"
+	],
+	"auto_complete_triggers":
+	[
+		{
+			"characters": ".:>",
+			"selector": "source.c++ - string - comment - constant.numeric"
+		}
 	],
 	"caret_style": "phase",
 	"color_scheme": "Packages/Dayle Rees Color Schemes/legacy/Darkside.tmTheme",
@@ -76,14 +96,16 @@
 	"highlight_line": false,
 	"ignored_packages":
 	[
-		"Vintage",
-		"MIPS Syntax"
+		"MIPS Syntax",
+		"Vintage"
 	],
 	"ignored_words":
 	[
+		"mont",
 		"passenger\"'s",
 		"so9",
 		"so9s"
 	],
-	"update_check": false
+	"update_check": false,
+	"word_wrap": "false"
 }

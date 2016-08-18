@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+PROP="HorizTwoFingerScroll";
+
+CURRENT_VALUE="$(synclient -l | grep "${PROP}" | cut -d '=' -f 2 | cut -d ' ' -f 2)"
+
+NEW_VALUE=$((1 - CURRENT_VALUE))
+
+synclient "${PROP}=${NEW_VALUE}"
+

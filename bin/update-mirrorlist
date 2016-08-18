@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# update pacman's mirrorlist with some recent servers
+reflector --verbose -l 200 -a $(: seven days; echo 168) -p https -p http --sort rate --country "Canada" --country "United States" > "/etc/pacman.d/mirrorlist"
+

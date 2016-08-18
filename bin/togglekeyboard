@@ -1,0 +1,8 @@
+if [[ $(setxkbmap -query) == *dvp* ]]
+then
+  setxkbmap us;
+  echo "changing to querty"
+else
+  setxkbmap us dvp
+  echo "changing to programmer dvorak"
+fi

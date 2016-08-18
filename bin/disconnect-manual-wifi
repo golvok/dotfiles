@@ -1,0 +1,5 @@
+if ( sudo true ); then
+	sudo killall wpa_supplicant
+	sudo killall dhcpcd
+	sudo systemctl start NetworkManager
+fi

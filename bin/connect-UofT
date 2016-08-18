@@ -1,0 +1,14 @@
+if ( sudo true ); then
+	echo "successful permission escalation, doing things..."
+	sudo systemctl stop NetworkManager.service
+	sudo systemctl stop wpa_supplicant
+	sudo wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant-UofT.conf
+	sudo dhcpcd --release wlp3s0
+	sudo dhcpcd --rebind wlp3s0
+
+	while true; do
+		echo "ip route:"
+		ip route
+		sleep 1
+	done
+fi

@@ -232,3 +232,4 @@
 !/.ssh/**/*.pub
 !/.config/sublime-text-3/Installed Packages/*.sublime-package
 !/.config/sublime-text-3/Packages/User/*.sublime-settings
+!/bin

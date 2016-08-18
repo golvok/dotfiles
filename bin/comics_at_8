@@ -1,0 +1,22 @@
+rtcwake -m mem -t $(date -u +%s -d"13") || exit 1
+
+gnome-open http://www.redmoonrising.org/
+gnome-open http://www.zapcomic.com/
+gnome-open http://earthsongsaga.com/
+gnome-open http://hijinksensue.com/
+gnome-open http://comicjk.com/comic.php/latest
+gnome-open http://notinventedhe.re/
+gnome-open http://deadwinter.cc/
+gnome-open http://www.sandraandwoo.com/
+gnome-open http://www.rice-boy.com/
+gnome-open http://www.gunnerkrigg.com/
+gnome-open http://www.allnewissuescomic.com/
+gnome-open http://scarygoround.com/
+gnome-open http://www.girlgeniusonline.com/comic.php
+gnome-open http://abstrusegoose.com/
+gnome-open http://xkcd.com/
+gnome-open http://questionablecontent.net/
+gnome-open http://www.misfile.com/
+gnome-open http://guildedage.net/
+gnome-open http://www.meetmyminion.com/
+gnome-open http://www.samandfuzzy.com/

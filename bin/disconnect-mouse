@@ -1,0 +1,1 @@
+bluetoothctl <<< "disconnect 28:18:78:60:BB:63"

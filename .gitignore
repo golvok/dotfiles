@@ -76,6 +76,7 @@
 /.config/pulse/*.tdb
 /.config/pulse/cookie
 /.config/pulseaudio-ctl
+/.config/QtProject.conf
 /.config/rygel*
 /.config/Skype
 /.config/sublime-text-3
@@ -222,6 +223,7 @@
 /.Xauthority
 /.xournal/config
 /.xournal/recent-files
+/.xournalpp/metadata.ini
 /.zcompdump
 /.zdirs
 /.zenmap

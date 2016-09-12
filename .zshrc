@@ -49,22 +49,45 @@ source ~/.bourne-shell-compatible-rc
 case $TERM in
   termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
     precmd () {
-      vcs_info
-      print -Pn "\e]0;[%n@%M][%~]%#\a"
+      ## the title when just at a prompt
+      
+      # print begin
+      print -Pn "\e]0;"
+      if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+        # print user & host
+        print -Pn "[%n@%M]"
+      fi
+      # print path
+      print -Pn "%~"
+      # print end
+      print -Pn "\a"
     } 
-    preexec () { print -Pn "\e]0;[%n@%M][%~]%# ($1)\a" }
+    preexec () {
+      ## the title when running a command (name is passed as $1)
+      
+      # print begin
+      print -Pn "\e]0;"
+      if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+        # print user & host
+        print -Pn "[%n@%M]"
+      fi
+      # print path & command
+      print -Pn "%~ ($1)"
+      # print end
+      print -Pn "\a"
+    }
     ;;
   screen|screen-256color)
     precmd () { 
-      vcs_info
+      # vcs_info
       print -Pn "\e]83;title \"$1\"\a" 
-      print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a" 
+      print -Pn "\e]0;$TERM - (%L) %~\a" 
     }
     preexec () { 
       print -Pn "\e]83;title \"$1\"\a" 
-      print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] ($1)\a" 
+      print -Pn "\e]0;$TERM - (%L) %~ ($1)\a" 
     }
-    ;; 
+    ;;
 esac
 
 setprompt() {

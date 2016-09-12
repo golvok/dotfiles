@@ -87,10 +87,10 @@ bindsym $mod+Ctrl+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+l focus parent
 
 # focus the child container
-bindsym $mod+shift+A focus child
+bindsym $mod+shift+L focus child
 
 # switch to workspace
 bindsym $mod+ampersand    workspace "1a"
@@ -128,9 +128,9 @@ bindsym $mod+Shift+P       move container to workspace "4b"
 bindsym $mod+Shift+m move workspace to output right
 
 # reload the configuration file
-bindsym $mod+Shift+L exec "notify-send test"
+bindsym $mod+Shift+R reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+R restart
+bindsym $mod+Ctrl+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+Q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -171,6 +171,9 @@ bindsym XF86AudioRaiseVolume exec "pulseaudio-ctl up"
 bindsym XF86AudioLowerVolume exec "pulseaudio-ctl down"
 bindsym XF86AudioMute        exec "pulseaudio-ctl mute"
 bindsym XF86AudioMicMute     exec "pulseaudio-ctl mute-input"
+
+# Keyboard toggle
+bindsym $mod+shift+A exec "~/bin/togglekeyboard"
 
 # Workspace assignments
 # assign [class="^URxvt$" instance="^irssi$"] → 3

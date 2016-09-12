@@ -15,28 +15,35 @@ alias afpNITROGENmatthome='afp_client mount -u matt -p - "NITROGEN.local:matt" ~
 alias minecraft='primusrun java -jar ~/Software/minecraftLauncher.jar'
 alias gcc-m='gcc -std=c99 -lm'
 alias gcc-md='gcc-m -Wall -pedantic -Wextra'
-alias make='make -j9 -l10'
 alias gitst='git status'
-alias remake='make clean && make'
+
+unalias make;
+unalias remake;
+
 alias wine32='WINEPREFIX=~/.wine32 WINEARCH=wine32'
 alias cdcs='cd ~/Documents/school/University/year_4-2016/'
 
+function remake { (
+	make clean "$@"
+	make "$@"
+) }
+
 function virtualbox() {
-    sudo modprobe vboxdrv;
-    sudo modprobe vboxnetadp;
-    sudo modprobe vboxnetflt;
-    /usr/bin/virtualbox;
+	sudo modprobe vboxdrv;
+	sudo modprobe vboxnetadp;
+	sudo modprobe vboxnetflt;
+	/usr/bin/virtualbox;
 }
 
 function man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
+	env LESS_TERMCAP_mb=$'\E[01;31m' \
+	LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+	LESS_TERMCAP_me=$'\E[0m' \
+	LESS_TERMCAP_se=$'\E[0m' \
+	LESS_TERMCAP_so=$'\E[38;5;246m' \
+	LESS_TERMCAP_ue=$'\E[0m' \
+	LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+	man "$@"
 }
 
 function funchelp() { grep "function" "$HOME/.bashrc"; }
@@ -165,11 +172,11 @@ function wait_for() {
 }
 
 function anywait(){
-    for pid in "$@"; do
-        while kill -0 "$pid"; do
-            sleep 0.5
-        done
-    done
+	for pid in "$@"; do
+		while kill -0 "$pid"; do
+			sleep 0.5
+		done
+	done
 }
 
 function cdar() { cd *$@* ; }
@@ -253,11 +260,11 @@ function do_in_parallel() {
 }
 
 function stashmake() {
-    git stash && make "$@" && git stash pop
+	git stash && make "$@" && git stash pop
 }
 
 function ioctave() {
-    octave --no-gui "$@"
+	octave --no-gui "$@"
 }
 
 export EDITOR=vim
@@ -267,5 +274,48 @@ export VISUAL="$EDITOR"
 export ANDROID_HOME=/opt/android-sdk
 
 function update-mirrrorlist() {
-    reflector --verbose -l 200 -a $(: seven days; echo 168) -p https -p http --sort rate --country "Canada" --country "United States" --save /etc/pacman.d/mirrorlist
+	reflector --verbose -l 200 -a $(: seven days; echo 168) -p https -p http --sort rate --country "Canada" --country "United States" --save /etc/pacman.d/mirrorlist
+}
+
+function lines-to-math() {
+	awk 'BEGIN{printf " ( ";} {printf $1; printf" '"$1"' "} END{printf '"$2"'; printf " ) "}'
+}
+
+function gprof-loop() {
+	if [ $# -lt 2 ]; then
+		echo "usage: gprof-loop <number of runs> <commandline...>"
+		return 1
+	fi
+
+	for i in $(seq 1 $1); do
+
+		# Run profiled program
+		commandline=( "${@:2}" )
+		"${commandline[@]}"
+
+		# Accumulate gprof statistic
+		if [ -e gmon.sum ]; then
+			gprof -s $2 gmon.out gmon.sum && rm gprof.out
+		else
+			mv gmon.out gmon.sum
+		fi
+	done
+
+	# make final output
+	gprof block_hasher gmon.sum > gmon.out && rm gmon.sum
+}
+
+function time-loop() {
+	if [ $# -lt 2 ]; then
+		echo "usage: time-loop <number of runs> <commandline...>"
+		return 1
+	fi
+
+	for i in $(seq 1 $1); do
+
+		# Run profiled program
+		commandline=( "${@:2}" )
+		time "${commandline[@]}" > "stdout-$i.txt"
+
+	done
 }

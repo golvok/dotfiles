@@ -15,36 +15,56 @@ compinit
 
 source ~/.bourne-shell-compatible-rc
 
-# mostly stolen from https://github.com/MrElendig/dotfiles-alice/blob/master/.zshrc
 
 #------------------------------
 # Keybindings
+# from http://zshwiki.org/home/zle/bindkeys
 #------------------------------
-# bindkey -v
-# typeset -g -A key
-#bindkey '\e[3~' delete-char
-# bindkey '\e[1~' beginning-of-line
-# bindkey '\e[4~' end-of-line
-#bindkey '\e[2~' overwrite-mode
-# bindkey '^?' backward-delete-char
-# bindkey '^[[1~' beginning-of-line
-# bindkey '^[[5~' up-line-or-history
-# bindkey '^[[3~' delete-char
-# bindkey '^[[4~' end-of-line
-# bindkey '^[[6~' down-line-or-history
-# bindkey '^[[A' up-line-or-search
-# bindkey '^[[D' backward-char
-# bindkey '^[[B' down-line-or-search
-# bindkey '^[[C' forward-char 
-# for rxvt
-# bindkey "\e[8~" end-of-line
-# bindkey "\e[7~" beginning-of-line
-# for gnome-terminal
-# bindkey "\eOH" beginning-of-line
-# bindkey "\eOF" end-of-line
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -A key
+
+key[Home]="$terminfo[khome]"
+key[End]="$terminfo[kend]"
+key[Insert]="$terminfo[kich1]"
+key[Backspace]="$terminfo[kbs]"
+key[Delete]="$terminfo[kdch1]"
+key[Up]="$terminfo[kcuu1]"
+key[Down]="$terminfo[kcud1]"
+key[Left]="$terminfo[kcub1]"
+key[Right]="$terminfo[kcuf1]"
+key[PageUp]="$terminfo[kpp]"
+key[PageDown]="$terminfo[knp]"
+
+# setup key accordingly
+[[ -n "$key[Home]"      ]] && bindkey -- "$key[Home]"      beginning-of-line
+[[ -n "$key[End]"       ]] && bindkey -- "$key[End]"       end-of-line
+[[ -n "$key[Insert]"    ]] && bindkey -- "$key[Insert]"    overwrite-mode
+[[ -n "$key[Backspace]" ]] && bindkey -- "$key[Backspace]" backward-delete-char
+[[ -n "$key[Delete]"    ]] && bindkey -- "$key[Delete]"    delete-char
+[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-history
+[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-history
+[[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
+[[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
+[[ -n "$key[PageUp]"    ]] && bindkey -- "$key[PageUp]"    up-line-or-history
+[[ -n "$key[PageDown]"  ]] && bindkey -- "$key[PageDown]"  down-line-or-history
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+    function zle-line-init () {
+        echoti smkx
+    }
+    function zle-line-finish () {
+        echoti rmkx
+    }
+    zle -N zle-line-init
+    zle -N zle-line-finish
+fi
 
 #------------------------------
 # Window title
+# mostly stolen from https://github.com/MrElendig/dotfiles-alice/blob/master/.zshrc and 
 #------------------------------
 case $TERM in
   termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)

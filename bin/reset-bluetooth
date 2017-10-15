@@ -1,0 +1,2 @@
+rfkill unblock all
+(echo "power off"; sleep 0.5; echo "power on"; sleep 0.1; echo "power off"; sleep 0.1; echo "power on"; sleep 2) | bluetoothctl

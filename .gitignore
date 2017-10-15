@@ -33,6 +33,7 @@
 /.config/anjuta
 /.config/autostart
 /.config/backintime
+/.config/boost/config.json
 /.config/brasero
 /.config/chromium
 /.config/compiz-1

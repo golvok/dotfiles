@@ -2,17 +2,19 @@
 MAC='28:18:78:60:BB:63'
 
 (
-	echo "power off"
+	# echo "power off"
 
-	echo "power on"
+	# echo "power on"
 
 	echo "remove $MAC";
 
 	echo "scan on"
 
+	sleep 2;
+
 	for i in $(seq 1 30); do
 		echo "connect $MAC";
-		sleep 1;
+		sleep 0.5;
 	done
 
 	echo "trust $MAC";

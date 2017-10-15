@@ -1,7 +1,3 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -10,6 +6,8 @@ PATH="$PATH:/opt/altera/quartus/bin"
 PATH="$PATH:/opt/altera/modelsim_ae/bin/"
 # PATH="$PATH:/home/matt/pebble-dev/PebbleSDK-3.7/bin"
 
+export SCIPY_PIL_IMAGE_VIEWER="xdg-open"
+
 alias nvidia-settings='primusrun nvidia-settings -c :8'
 alias afpNITROGENmatthome='afp_client mount -u matt -p - "NITROGEN.local:matt" ~/afp_NITROGENmatthome'
 alias minecraft='primusrun java -jar ~/Software/minecraftLauncher.jar'
@@ -17,15 +15,13 @@ alias gcc-m='gcc -std=c99 -lm'
 alias gcc-md='gcc-m -Wall -pedantic -Wextra'
 alias gitst='git status'
 
-unalias make;
-unalias remake;
-
 alias wine32='WINEPREFIX=~/.wine32 WINEARCH=wine32'
-alias cdcs='cd ~/Documents/school/University/year_4-2016/'
+alias cdcs="cd '/home/matt/Documents/school/UofT MASc/year 1'"
+alias clip-copy='xclip -selection c'
+alias clip-paste='xclip -selection o'
 
 function remake { (
-	make clean "$@"
-	make "$@"
+	make clean "$@" && make "$@"
 ) }
 
 function virtualbox() {
@@ -59,7 +55,7 @@ function edit() {
 	subl3 -n "$@";
 }
 
-function editbrc() { edit ~/.bashrc "$@"; }
+function editbrc() { edit ~/.bourne-shell-compatible-rc "$@"; }
 
 function gerp() { grep "$@"; }
 alias grep="grep --color=always"
@@ -105,8 +101,8 @@ function line() { (
 	$EDITOR $ARGS "$FILE_AND_LINE_TO_EDIT"
 ); }
 
-function pn() { ping_noise "$@"; }
-function ping_noise() {
+function pn() { ping-noise "$@"; }
+function ping-noise() {
 	TIMES="1"
 	DELAY="no"
 
@@ -123,23 +119,23 @@ function ping_noise() {
 		if [[ $DELAY == "yes" ]]; then
 			sleep 2
 		fi
-		( sox ~/Audio/Ding_by_Aiwha.ogg -dq & )
+		( sox -v 0.05 ~/Audio/Ding_by_Aiwha.ogg -dq & )
 		DELAY="yes"
 	done
 }
 
-function nn() { noise_notify "$@"; }
-function noise_notify() {
+function nn() { noise-notify "$@"; }
+function noise-notify() {
 	if [[ "$@" == "" ]]; then
 		MESSAGE="$PWD";
 	else
 		MESSAGE="$@";
 	fi
 
-	ping_noise & notify-send -t 60000 "$MESSAGE";
+	ping-noise & notify-send -t 60000 "$MESSAGE";
 }
 
-function make_p() { (
+function make-p() { (
 	make -j9 -l9 "$@"
 	MAKE_RESULT="$?"
 
@@ -149,9 +145,9 @@ function make_p() { (
 
 	exit "$MAKE_RESULT"
 ) }
-alias make_P=make_p;
+alias make_P=make-p;
 
-function wait_for() {
+function wait-for() {
 	if [[ $1 == "-r" ]]; then
 		REMOVE=true
 		FILE="$2"
@@ -179,7 +175,7 @@ function anywait(){
 	done
 }
 
-function cdar() { cd *$@* ; }
+function cdar() { cd *"$@"* ; }
 function cdrecent() { cd $(find ./ -maxdepth 1 -type d -regex \"\\\\./[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-.*\" | sort | tail -n 1 - ) "$@"; }
 function cdlast() { cd $(find ./ -maxdepth 1 -type d | tail -n 1 - ) "$@"; }
 function cd..() { cd ".." "$@"; }
@@ -194,6 +190,7 @@ function rmthisdir() {
 }
 
 alias ls="ls --color=auto"
+alias oeu=ls
 
 alias les="less"
 alias lesss="less"
@@ -203,7 +200,7 @@ function date() {
 	if [ $# -eq 0 ]; then
 		date "+%F %T (%a)";
 	else
-		"$(which date)" "$@"
+		/usr/bin/env date "$@"
 	fi
 }
 
@@ -256,7 +253,7 @@ function do_in_parallel() {
 		( cd "$d" && $2 ) &
 	done
 	wait
-	( ping_noise & )
+	( ping-noise & )
 }
 
 function stashmake() {
@@ -318,4 +315,12 @@ function time-loop() {
 		time "${commandline[@]}" > "stdout-$i.txt"
 
 	done
+}
+
+function my-torch-activate() {
+	source "/home/matt/Software/torch-distro/install/bin/torch-activate"
+}
+
+function findable-spam() {
+	for i in $(seq 1 7); do echo "= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = ="; done;
 }

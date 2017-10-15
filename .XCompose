@@ -1,0 +1,143 @@
+include "%L" # include locale's default
+
+<Multi_key> <f> <a>  	: "∀"
+<Multi_key> <t> <e>  	: "∃"
+<Multi_key> <e> <o>  	: "∈"
+<Multi_key> <n> <e> <o>  	: "∉"
+<Multi_key> <s> <b> <s>  	: "⊆"
+<Multi_key> <s> <p> <s> 	: "⊇"
+<Multi_key> <i> <s>  	: "∩"
+<Multi_key> <u> <n>  	: "∪"
+# <Multi_key>   	: "∅"
+<Multi_key> <c> <o> <j> 	: "∧"
+<Multi_key> <d> <i> <j>  	: "∨"
+<Multi_key> <apostrophe> <minus>  	: "⌜"
+<Multi_key> <minus> <apostrophe>  	: "⌝"
+<Multi_key> <a> <l> <p> <h> <a>  	: "α"
+<Multi_key> <b> <e> <t> <a>  	: "β"
+<Multi_key> <g> <a> <m> <m> <a> 	: "γ"
+<Multi_key> <p> <o> <w> <e> <r>  	: "℘"
+
+
+<Multi_key> <i> <u> <a> : "ɐ" # Latin Small Letter Turned A 	Near-open central vowel 	324
+<Multi_key> <i> <a> <l> : "ɑ" # Latin Small Letter Alpha 	Open back unrounded vowel 	305
+<Multi_key> <i> <b> <a> <l> : "ɒ" # Latin Small Letter Turned Alpha 	Open back rounded vowel 	313
+# <Multi_key> <i> <???> : "ɓ" # Latin Small Letter B with Hook 	Voiced bilabial implosive 	160
+<Multi_key> <i> <b> <c> : "ɔ" # Latin Small Letter Open O 	Open-mid back rounded vowel 	306
+# <Multi_key> <i> <???> : "ɕ" # Latin Small Letter C with Curl 	Voiceless alveolo-palatal fricative 	182
+# <Multi_key> <i> <???> : "ɖ" # Latin Small Letter D with Tail 	Voiced retroflex plosive 	106
+# <Multi_key> <i> <???> : "ɗ" # Latin Small Letter D with Hook 	Voiced alveolar implosive 	162
+# <Multi_key> <i> <???> : "ɘ" # Latin Small Letter Reversed E 	Close-mid central unrounded vowel 	397
+# <Multi_key> <i> <???> : "ə" # Latin Small Letter Schwa 	Mid central vowel 	322
+<Multi_key> <i> <e> <r> : "ɚ" # Latin Small Letter Schwa with Hook 	Rhotacized Mid central vowel 	327
+<Multi_key> <i> <e> <p> : "ɛ" # Latin Small Letter Open E 	Open-mid front unrounded vowel 	303
+# <Multi_key> <i> <???> : "ɜ" # Latin Small Letter Reversed Open E 	Open-mid central unrounded vowel 	326
+# <Multi_key> <i> <???> : "ɝ" # Latin Small Letter Reversed Open E with Hook 	Rhotacized Open-mid central unrounded vowel
+# <Multi_key> <i> <???> : "ɞ" # Latin Small Letter Closed Reversed Open E 	Open-mid central rounded vowel 	395
+# <Multi_key> <i> <???> : "ɟ" # Latin Small Letter Dotless J with Stroke 	Voiced palatal plosive 	108
+# <Multi_key> <i> <???> : "ɠ" # Latin Small Letter G with Hook 	Voiced velar implosive 	166
+# <Multi_key> <i> <???> : "ɡ" # Latin Small Letter Script G 	Voiced velar plosive 	110
+# <Multi_key> <i> <???> : "ɢ" # Latin Letter Small Capital G 	Voiced uvular plosive 	112
+# <Multi_key> <i> <???> : "ɣ" # Latin Small Letter Gamma 	Voiced velar fricative 	141
+# <Multi_key> <i> <???> : "ɤ" # Latin Small Letter Rams Horn 	Close-mid back unrounded vowel 	315
+<Multi_key> <i> <u> <h> : "ɥ" # Latin Small Letter Turned H 	Labial-palatal approximant 	171
+<Multi_key> <i> <h> <h> : "ɦ" # Latin Small Letter H with Hook 	Voiced glottal fricative 	147
+# <Multi_key> <i> <???> : "ɧ" # Latin Small Letter Heng with Hook 	Swedish sj-sound. Similar to: Voiceless postalveolar fricative, Voiceless velar fricative 	175
+# <Multi_key> <i> <???> : "ɨ" # Latin Small Letter I with Stroke 	Close central unrounded vowel 	317
+# <Multi_key> <i> <???> : "ɩ" # Latin Small Letter Iota 	pre-1989 form of "ɪ" (obsolete) 	399
+<Multi_key> <i> <I> : "ɪ" # Latin Letter Small Capital I 	Near-close near-front unrounded vowel 	319
+# <Multi_key> <i> <???> : "ɫ" # Latin Small Letter L with Middle Tilde 	Velar/pharyngeal Alveolar lateral approximant 	209
+# <Multi_key> <i> <???> : "ɬ" # Latin Small Letter L with Belt 	Voiceless alveolar lateral fricative 	148
+# <Multi_key> <i> <???> : "ɭ" # Latin Small Letter L with Retroflex Hook 	Retroflex lateral approximant 	156
+# <Multi_key> <i> <???> : "ɮ" # Latin Small Letter Lezh 	Voiced alveolar lateral fricative 	149
+<Multi_key> <i> <u> <m> : "ɯ" # Latin Small Letter Turned M 	Close back unrounded vowel 	316
+<Multi_key> <i> <u> <comma> <m> : "ɰ" # Latin Small Letter Turned M with Long Leg 	Velar approximant 	154
+<Multi_key> <i> <m> <g> : "ɱ" # Latin Small Letter M with Hook 	Labiodental nasal 	115
+# <Multi_key> <i> <???> : "ɲ" # Latin Small Letter N with Left Hook 	Palatal nasal 	118
+# <Multi_key> <i> <???> : "ɳ" # Latin Small Letter N with Retroflex Hook 	Retroflex nasal 	117
+# <Multi_key> <i> <???> : "ɴ" # Latin Letter Small Capital N 	Uvular nasal 	120
+# <Multi_key> <i> <???> : "ɵ" # Latin Small Letter Barred O 	Close-mid central rounded vowel 	323
+# <Multi_key> <i> <???> : "ɶ" # Latin Letter Small Capital OE 	Open front rounded vowel 	312
+# <Multi_key> <i> <???> : "ɷ" # Latin Small Letter Closed Omega 	pre-1989 form of "ʊ" (obsolete) 	398
+# <Multi_key> <i> <???> : "ɸ" # Latin Small Letter Phi 	Voiceless bilabial fricative 	126
+<Multi_key> <i> <u> <r> : "ɹ" # Latin Small Letter Turned R 	Alveolar approximant 	151
+# <Multi_key> <i> <???> : "ɺ" # Latin Small Letter Turned R with Long Leg 	Alveolar lateral flap 	181
+# <Multi_key> <i> <???> : "ɻ" # Latin Small Letter Turned R with Hook 	Retroflex approximant 	152
+# <Multi_key> <i> <???> : "ɼ" # Latin Small Letter R with Long Leg 	Alveolar trill 	206
+# <Multi_key> <i> <???> : "ɽ" # Latin Small Letter R with Tail 	Retroflex flap 	125
+<Multi_key> <i> <t> <r> : "ɾ" # Latin Small Letter R with Fishhook 	Alveolar tap 	124
+# <Multi_key> <i> <???> : "ɿ" # Latin Small Letter Reversed R with Fishhook 	Syllabic voiced alveolar fricative (Sinologist usage)
+<Multi_key> <i> <R> <R> : "ʀ" # Latin Letter Small Capital R 	Uvular trill 	123
+# <Multi_key> <i> <???> : "ʁ" # Latin Letter Small Capital Inverted R 	Voiced uvular fricative 	143
+<Multi_key> <i> <s> <r> : "ʂ" # Latin Small Letter S with Hook 	Voiceless retroflex fricative 	136
+<Multi_key> <i> <e> <s> <h> : "ʃ" # Latin Small Letter Esh 	Voiceless postalveolar fricative 	134
+# <Multi_key> <i> <???> : "ʄ" # Latin Small Letter Dotless J with Stroke and Hook 	Voiced palatal implosive 	164
+# <Multi_key> <i> <???> : "ʅ" # Latin Small Letter Squat Reversed Esh 	Syllabic voiced retroflex fricative (Sinologist usage)
+# <Multi_key> <i> <???> : "ʆ" # Latin Small Letter Esh with Curl 	Voiceless alveolo-palatal fricative (obsolete) 	204
+# <Multi_key> <i> <???> : "ʇ" # Latin Small Letter Turned T 	Dental click (obsolete) 	201
+# <Multi_key> <i> <???> : "ʈ" # Latin Small Letter T with Retroflex Hook 	Voiceless retroflex plosive 	105
+# <Multi_key> <i> <???> : "ʉ" # Latin Small Letter U Bar 	Close central rounded vowel 	318
+<Multi_key> <i> <u> <p> : "ʊ" # Latin Small Letter Upsilon 	near-close near-back rounded vowel 	321
+# <Multi_key> <i> <???> : "ʋ" # Latin Small Letter V with Hook 	Labiodental approximant 	150
+<Multi_key> <i> <u> <v> : "ʌ" # Latin Small Letter Turned V 	Open-mid back unrounded vowel 	314
+# <Multi_key> <i> <???> : "ʍ" # Latin Small Letter Turned W 	Voiceless labiovelar approximant 	169
+# <Multi_key> <i> <???> : "ʎ" # Latin Small Letter Turned Y 	Palatal lateral approximant 	157
+# <Multi_key> <i> <???> : "ʏ" # Latin Letter Small Capital Y 	Near-close near-front rounded vowel 	320
+# <Multi_key> <i> <???> : "ʐ" # Latin Small Letter Z with Retroflex Hook 	Voiced retroflex fricative 	137
+# <Multi_key> <i> <???> : "ʑ" # Latin Small Letter Z with Curl 	Voiced alveolo-palatal fricative 	183
+<Multi_key> <i> <3> <3> : "ʒ" # Latin Small Letter Ezh 	Voiced postalveolar fricative 	135
+# <Multi_key> <i> <???> : "ʓ" # Latin Small Letter Ezh with Curl 	Voiced alveolo-palatal fricative (obsolete) 	205
+<Multi_key> <i> <question> : "ʔ" # Latin Letter Glottal Stop 	Glottal stop 	113
+# <Multi_key> <i> <???> : "ʕ" # Latin Letter Pharyngeal Voiced Fricative 	Voiced pharyngeal fricative 	145
+# <Multi_key> <i> <???> : "ʖ" # Latin Letter Inverted Glottal Stop 	Alveolar lateral click (obsolete) 	203
+# <Multi_key> <i> <???> : "ʗ" # Latin Letter Stretched C 	Postalveolar click (obsolete) 	202
+# <Multi_key> <i> <???> : "ʘ" # Latin Letter Bilabial Click 	Bilabial click 	176
+# <Multi_key> <i> <???> : "ʙ" # Latin Letter Small Capital B 	Bilabial trill 	121
+# <Multi_key> <i> <???> : "ʚ" # Latin Small Letter Closed Open E 	A mistake for [œ] 	396
+# <Multi_key> <i> <???> : "ʛ" # Latin Letter Small Capital G with Hook 	Voiced uvular implosive 	168
+# <Multi_key> <i> <???> : "ʜ" # Latin Letter Small Capital H 	Voiceless epiglottal fricative 	172
+# <Multi_key> <i> <???> : "ʝ" # Latin Small Letter J with Crossed Tail 	Voiced palatal fricative 	139
+# <Multi_key> <i> <???> : "ʞ" # Latin Small Letter Turned K 	Velar click (obsolete) 	291
+# <Multi_key> <i> <???> : "ʟ" # Latin Letter Small Capital L 	Velar lateral approximant 	158
+# <Multi_key> <i> <???> : "ʠ" # Latin Small Letter Q with Hook 	"Voiceless" uvular implosive (obsolete) 	167
+# <Multi_key> <i> <???> : "ʡ" # Latin Letter Glottal Stop with Stroke 	Epiglottal plosive 	173
+# <Multi_key> <i> <???> : "ʢ" # Latin Letter Reversed Glottal Stop with Stroke 	Voiced epiglottal fricative 	174
+# <Multi_key> <i> <???> : "ʣ" # Latin Small Letter DZ Digraph 	Voiced alveolar affricate (obsolete) 	212
+<Multi_key> <i> <d> <3> : "ʤ" # Latin Small Letter Dezh Digraph 	Voiced postalveolar affricate (obsolete) 	214
+<Multi_key> <i> <d> <z> : "ʥ" # Latin Small Letter DZ Digraph with Curl 	Voiced alveolo-palatal affricate (obsolete) 	216
+<Multi_key> <i> <t> <s> : "ʦ" # Latin Small Letter TS Digraph 	Voiceless alveolar affricate (obsolete) 	211
+<Multi_key> <i> <t> <e> <s> <h> : "ʧ" # Latin Small Letter Tesh Digraph 	Voiceless postalveolar affricate (obsolete) 	213
+# <Multi_key> <i> <???> : "ʨ" # Latin Small Letter TC Digraph with Curl 	Voiceless alveolo-palatal affricate (obsolete) 	215
+# <Multi_key> <i> <???> : "ʩ" # Latin Small Letter Feng Digraph 	velopharyngeal fricative 	602
+# <Multi_key> <i> <???> : "ʪ" # Latin Small Letter LS Digraph 	voiceless lateral alveolar fricative 	603
+# <Multi_key> <i> <???> : "ʫ" # Latin Small Letter LZ Digraph 	voiced lateral alveolar fricative 	604
+# <Multi_key> <i> <???> : "ʬ" # Latin Letter Bilabial Percussive 	Bilabial percussive
+# <Multi_key> <i> <???> : "ʭ" # Latin Letter Bidental Percussive 	Bidental percussive 	601
+# <Multi_key> <i> <???> : "ʮ" # Latin Small Letter Turned H with Fishhook 	Syllabic labialized voiced alveolar fricative (Sinologist usage)
+# <Multi_key> <i> <???> : "ʯ" # Latin Small Letter Turned H with Fishhook and Tail 	Syllabic labialized voiced retroflex fricative (Sinologist usage)
+
+<Multi_key> <i> <s> <h> : "ʰ"
+<Multi_key> <i> <s> <w> : "ʷ"
+<Multi_key> <i> <s> <question> : "ˀ"
+
+<Multi_key> <i> <b> <o> : "̥" # COMBINING RING BELOW
+<Multi_key> <i> <b> <b> : "̪" # COMBINING BRIDGE BELOW (DENTAL)
+<Multi_key> <i> <b> <r> : "̢" # CONBINING RETROFLEX HOOK BELOW
+<Multi_key> <i> <b> <colon> : "̤" # COMBINING DIAERESIS BELOW
+<Multi_key> <i> <b> <t> : "̰" # COMBINING TILDE BELOW
+<Multi_key> <i> <a> <t> : "̃" # COMBINING TILDE
+<Multi_key> <i> <o> <t> : "̴" # COMBINING TILDE OVERLAY
+<Multi_key> <i> <b> <plus> : "̟" # COMBINING PLUS SIGN BELOW
+<Multi_key> <i> <b> <apostrophe> : "̩" # COMBINING VERTICAL LINE BELOW
+<Multi_key> <i> <i> <b> <b> : "̯" # COMBINING INVERTED BREVE BELOW
+
+<Multi_key> <i> <d> <x> : "ð"
+<Multi_key> <i> <t> <h> : "θ"
+<Multi_key> <i> <n> <g> : "ŋ"
+
+<Multi_key> <i> <colon> : "ː"
+<Multi_key> <i> <apostrophe> : "ˑ"
+
+<Multi_key> <i> <o> <i> <b> : "͡" U0361 # COMBINING DOUBLE INVERTED BREVE
+
+# add o with /

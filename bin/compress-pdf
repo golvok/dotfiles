@@ -1,0 +1,7 @@
+if [ -z $2 ]; then
+	SETTING="ebook"
+else
+	SETTING="$2"
+fi
+
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/"$SETTING" -sOutputFile="$1".compressed "$1"

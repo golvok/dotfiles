@@ -24,7 +24,7 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 
 eval $(/usr/bin/ssh-agent -s)
 
-#( ( sleep 10 && /usr/bin/xscreensaver -no-splash -display :0.0 ) & )
+( ( sleep 10 && /usr/bin/xscreensaver -no-splash -display :0.0 ) & )
 #exec awesome
 
 #xterm &

@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.35 for matt on Fri Jun 24 10:56:13 2016.
+# Written by xscreensaver-demo 5.42 for matt on Mon Feb 25 16:15:53 2019.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	1:30:00
-cycle:		0:07:00
-lock:		False
-lockTimeout:	0:01:00
+timeout:	0:10:00
+cycle:		0:05:00
+lock:		True
+lockTimeout:	0:02:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -17,7 +17,7 @@ demoCommand:	xscreensaver-demo
 prefsCommand:	xscreensaver-demo -prefs
 nice:		10
 memoryLimit:	0
-fade:		False
+fade:		True
 unfade:		False
 fadeSeconds:	0:00:03
 fadeTicks:	20
@@ -47,9 +47,9 @@ programs:								      \
 -				maze -root				    \n\
 -				electricsheep --root 1			    \n\
 - GL: 				superquadrics -root			    \n\
--				attraction -root -mode lines -points 4	      \
-				  -segments 40 -threshold 351 -delay	      \
-				  15385					    \n\
+				attraction -root -mode lines -points 5	      \
+				  -segments 40 -colors 255 -threshold 351     \
+				  -delay 9000				    \n\
 -				blitspin -root				    \n\
 -				greynetic -root				    \n\
 -				helix -root				    \n\
@@ -94,7 +94,9 @@ programs:								      \
 -				slip -root				    \n\
 - GL: 				sproingies -root			    \n\
 -				starfish -root				    \n\
--				strange -root				    \n\
+				strange -root -delay 100000 -curve 10	      \
+				  -points 175650 -motion-blur 7.3	      \
+				  -ncolors 22				    \n\
 -				swirl -root				    \n\
 -				triangle -root				    \n\
 -				xjack -root				    \n\
@@ -159,8 +161,8 @@ programs:								      \
 -				vermiculate -root			    \n\
 - Best: 			whirlwindwarp -root -points 741 -tails 18   \n\
 -				zoom -root				    \n\
--				anemone -root -arms 186 -finpoints 109	      \
-				  -width 1 -withdraw 5160 -turnspeed 8	    \n\
+				anemone -root -arms 417 -finpoints 59	      \
+				  -width 1 -withdraw 5160 -turnspeed 0	    \n\
 -				apollonian -root -ncolors 113		    \n\
 - GL: 				boxed -root				    \n\
 - GL: 				cubenetic -root				    \n\
@@ -182,7 +184,7 @@ programs:								      \
 -				twang -root				    \n\
 - GL: 				antspotlight -root			    \n\
 -				apple2 -root				    \n\
-- GL: 				atunnel -root				    \n\
+- GL: 				atunnel -root -light			    \n\
 -				barcode -root				    \n\
 - GL: 				blinkbox -root -boxsize 1		    \n\
 - GL: 				blocktube -root				    \n\
@@ -207,7 +209,7 @@ programs:								      \
 -				popsquares -root			    \n\
 - GL: 				surfaces -root				    \n\
 -				xanalogtv -root				    \n\
--				abstractile -root			    \n\
+  Best: 			abstractile -root -speed -5 -sleep 2	    \n\
 -				anemotaxis -root			    \n\
 - GL: 				antinspect -root			    \n\
 -				fireworkx -root -maxlife 85 -no-flash	      \
@@ -239,7 +241,8 @@ programs:								      \
 - GL: 				timetunnel -root			    \n\
 - GL: 				glschool -root				    \n\
 - GL: 				topblock -root				    \n\
-  GL: 				cubicgrid -root				    \n\
+  GL: 				cubicgrid -root -delay 87500 -speed 0.935     \
+				  -zoom 15 -no-bigdots			    \n\
 -				cwaves -root				    \n\
 - GL: 				gears -root				    \n\
 - GL: 				glcells -root				    \n\
@@ -275,6 +278,21 @@ programs:								      \
 - GL: 				hydrostat -root				    \n\
 - GL: 				raverhoop -root				    \n\
 - GL: 				unicrud -root				    \n\
+- GL: 				cubestack -root				    \n\
+  GL: 				cubetwist -root				    \n\
+- GL: 				discoball -root				    \n\
+  GL: 				hexstrut -root				    \n\
+- GL: 				splodesic -root				    \n\
+- GL: 				vigilance -root				    \n\
+- GL: 				esper -root				    \n\
+- GL: 				crumbler -root				    \n\
+- GL: 				maze3d -root				    \n\
+- GL: 				peepers -root				    \n\
+- GL: 				razzledazzle -root			    \n\
+-				filmleader -root			    \n\
+-				glitchpeg -root				    \n\
+- GL: 				handsy -root				    \n\
+-				vfeedback -root				    \n\
 
 
 pointerPollTime:    0:00:05

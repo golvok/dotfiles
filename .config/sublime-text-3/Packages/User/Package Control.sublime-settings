@@ -5,14 +5,20 @@
 	],
 	"installed_packages":
 	[
+		"ANSIescape",
 		"ARM Assembly",
-		"C++YouCompleteMe",
+		"Bison",
+		"CMake",
 		"Dayle Rees Color Schemes",
 		"HexViewer",
+		"INI",
+		"LLVM",
 		"MIPS Syntax",
 		"NASM x86 Assembly",
 		"Package Control",
+		"Protobuf Syntax Hightlighting",
 		"SystemVerilog",
-		"Verilog"
+		"Verilog",
+		"YouCompleteMe"
 	]
 }

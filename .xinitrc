@@ -20,6 +20,7 @@ nm-applet &
 blueman-applet &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/bin/gnome-keyring-daemon --start --components=secrets
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 eval $(/usr/bin/ssh-agent -s)
 

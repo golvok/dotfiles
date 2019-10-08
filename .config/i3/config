@@ -175,5 +175,8 @@ bindsym XF86AudioMicMute     exec "pulseaudio-ctl mute-input"
 # Keyboard toggle
 bindsym $mod+shift+A exec "~/bin/togglekeyboard"
 
+# Start Screen-saver & Lock Screen
+bindsym $mod+shift+o exec "xscreensaver-command -l"
+
 # Workspace assignments
 # assign [class="^URxvt$" instance="^irssi$"] → 3

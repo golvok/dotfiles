@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ $(setxkbmap -query) == *dvp* ]]
 then
   setxkbmap us;

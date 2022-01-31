@@ -189,6 +189,9 @@ bindsym $mod+shift+A exec "~/bin/togglekeyboard"
 # Reconnect mouse
 bindsym XF86Launch1 exec "~/bin/reconnect-mouse"
 
+# Start Screen-saver & Lock Screen
+bindsym $mod+shift+o exec "xscreensaver-command -l"
+
 # Workspace assignments
 # assign [class="^URxvt$" instance="^irssi$"] → 3
 

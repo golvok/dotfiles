@@ -7,6 +7,10 @@ unsetopt extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' max-errors 2
 zstyle :compinstall filename '/home/matt/.zshrc'
 
 autoload -Uz compinit
@@ -15,42 +19,43 @@ compinit
 
 source ~/.bourne-shell-compatible-rc
 
-
 #------------------------------
 # Keybindings
 # from http://zshwiki.org/home/zle/bindkeys
 #------------------------------
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
-typeset -A key
+typeset -A myKeyCodes
 
-key[Home]="$terminfo[khome]"
-key[End]="$terminfo[kend]"
-key[Insert]="$terminfo[kich1]"
-key[Backspace]="$terminfo[kbs]"
-key[Delete]="$terminfo[kdch1]"
-key[Up]="$terminfo[kcuu1]"
-key[Down]="$terminfo[kcud1]"
-key[Left]="$terminfo[kcub1]"
-key[Right]="$terminfo[kcuf1]"
-key[PageUp]="$terminfo[kpp]"
-key[PageDown]="$terminfo[knp]"
+myKeyCodes[Home]="$terminfo[khome]"
+myKeyCodes[End]="$terminfo[kend]"
+myKeyCodes[Insert]="$terminfo[kich1]"
+myKeyCodes[Backspace]="$terminfo[kbs]"
+myKeyCodes[Delete]="$terminfo[kdch1]"
+myKeyCodes[Up]="$terminfo[kcuu1]"
+myKeyCodes[Down]="$terminfo[kcud1]"
+myKeyCodes[Left]="$terminfo[kcub1]"
+myKeyCodes[Right]="$terminfo[kcuf1]"
+myKeyCodes[PageUp]="$terminfo[kpp]"
+myKeyCodes[PageDown]="$terminfo[knp]"
 
 # setup key accordingly
-[[ -n "$key[Home]"      ]] && bindkey -- "$key[Home]"      beginning-of-line
-[[ -n "$key[End]"       ]] && bindkey -- "$key[End]"       end-of-line
-[[ -n "$key[Insert]"    ]] && bindkey -- "$key[Insert]"    overwrite-mode
-[[ -n "$key[Backspace]" ]] && bindkey -- "$key[Backspace]" backward-delete-char
-[[ -n "$key[Delete]"    ]] && bindkey -- "$key[Delete]"    delete-char
-[[ -n "$key[Up]"        ]] && bindkey -- "$key[Up]"        up-line-or-history
-[[ -n "$key[Down]"      ]] && bindkey -- "$key[Down]"      down-line-or-history
-[[ -n "$key[Left]"      ]] && bindkey -- "$key[Left]"      backward-char
-[[ -n "$key[Right]"     ]] && bindkey -- "$key[Right]"     forward-char
-[[ -n "$key[PageUp]"    ]] && bindkey -- "$key[PageUp]"    up-line-or-history
-[[ -n "$key[PageDown]"  ]] && bindkey -- "$key[PageDown]"  down-line-or-history
+bindkey -- "$myKeyCodes[Home]"      beginning-of-line
+bindkey -- "$myKeyCodes[End]"       end-of-line
+bindkey -- "$myKeyCodes[Insert]"    overwrite-mode
+bindkey -- "$myKeyCodes[Backspace]" backward-delete-char
+bindkey -- "$myKeyCodes[Delete]"    delete-char
+bindkey -- "$myKeyCodes[Up]"        up-line-or-history
+bindkey -- "$myKeyCodes[Down]"      down-line-or-history
+bindkey -- "$myKeyCodes[Left]"      backward-char
+bindkey -- "$myKeyCodes[Right]"     forward-char
+bindkey -- "$myKeyCodes[PageUp]"    up-line-or-history
+bindkey -- "$myKeyCodes[PageDown]"  down-line-or-history
 
-# Finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
+bindkey -- "^[[1;5D" emacs-backward-word
+bindkey -- "^[[1;5D" emacs-forward-word
+
+# enable keypad-transmit when line editing
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     function zle-line-init () {
         echoti smkx
@@ -64,48 +69,29 @@ fi
 
 #------------------------------
 # Window title
-# mostly stolen from https://github.com/MrElendig/dotfiles-alice/blob/master/.zshrc and 
+# mostly stolen from https://github.com/MrElendig/dotfiles-alice/blob/master/.zshrc and
 #------------------------------
 case $TERM in
   termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
     precmd () {
-      ## the title when just at a prompt
-      
-      # print begin
-      print -Pn "\e]0;"
-      if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-        # print user & host
-        print -Pn "[%n@%M]"
+      print -Pn "\e]0;" # preable
+      if [[ $TERM == *screen* ]]; then
+        print -Pn "[screen: %n@%M]"
+      else
+        if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+          print -Pn "[%n@%M]"
+        fi
+        print -Pn "%2~"
       fi
-      # print path
-      print -Pn "%~"
-      # print end
-      print -Pn "\a"
-    } 
+      print -Pn "\a" # postamble
+    }
     preexec () {
-      ## the title when running a command (name is passed as $1)
-      
-      # print begin
-      print -Pn "\e]0;"
+      print -Pn "\e]0;" # preable
       if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-        # print user & host
         print -Pn "[%n@%M]"
       fi
-      # print path & command
-      print -Pn "%~ ($1)"
-      # print end
-      print -Pn "\a"
-    }
-    ;;
-  screen|screen-256color)
-    precmd () { 
-      # vcs_info
-      print -Pn "\e]83;title \"$1\"\a" 
-      print -Pn "\e]0;$TERM - (%L) %~\a" 
-    }
-    preexec () { 
-      print -Pn "\e]83;title \"$1\"\a" 
-      print -Pn "\e]0;$TERM - (%L) %~ ($1)\a" 
+      print -Pn "%2~ ($1)"
+      print -Pn "\a" # postamble
     }
     ;;
 esac
@@ -113,7 +99,7 @@ esac
 setprompt() {
   setopt prompt_subst
 
-  if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
+  if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
     p_host='%F{yellow}%M%f'
   else
     p_host='%F{green}%M%f'

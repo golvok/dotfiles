@@ -16,30 +16,7 @@
   [[default]]
     [[[child1]]]
       parent = window0
-      profile = default
       type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
-  [[threetab]]
-    [[[child1]]]
-      directory = ~/Code
-      parent = nb0
-      profile = default
-      type = Terminal
-    [[[child2]]]
-      directory = ~/Code
-      parent = nb0
-      profile = default
-      type = Terminal
-    [[[child3]]]
-      directory = ~/Code
-      parent = nb0
-      profile = default
-      type = Terminal
-    [[[nb0]]]
-      parent = window0
-      type = Notebook
     [[[window0]]]
       parent = ""
       type = Window

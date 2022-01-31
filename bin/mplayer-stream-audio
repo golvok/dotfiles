@@ -1,0 +1,2 @@
+#!/bin/bash
+mplayer -novideo -cache 4096 -cache-min 50 "$@";

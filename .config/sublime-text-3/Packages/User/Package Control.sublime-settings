@@ -7,12 +7,16 @@
 	[
 		"ARM Assembly",
 		"C++YouCompleteMe",
+		"CMake",
 		"Dayle Rees Color Schemes",
 		"HexViewer",
-		"MIPS Syntax",
+		"LLVM",
 		"NASM x86 Assembly",
+		"OpenScad",
 		"Package Control",
+		"Protobuf Syntax Hightlighting",
+		"RustFmt",
 		"SystemVerilog",
-		"Verilog"
-	]
+		"Verilog",
+	],
 }

@@ -1,0 +1,5 @@
+#!/bin/bash
+VID=$1
+shift
+mplayer-stream-audio "$@" $(youtube-dl -g "http://www.youtube.com/watch?v=$VID") 2>&1 | grep -vFe 'channel element' -e '(unknown)' -e 'for reading'
+

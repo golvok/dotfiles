@@ -1,13 +1,17 @@
 [global_config]
-  dbus = True
+  enabled_plugins = InactivityWatch, ActivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   focus = mouse
-  geometry_hinting = False
+  homogeneous_tabbar = False
+  scroll_tabbar = True
   title_font = Monospace 9
   title_inactive_bg_color = "#ffffff"
   title_transmit_bg_color = "#ffffff"
   title_transmit_fg_color = "#000000"
   title_use_system_font = False
 [keybindings]
+  close_term = None
+  close_window = None
+  help = None
 [layouts]
   [[default]]
     [[[child1]]]
@@ -42,10 +46,8 @@
 [plugins]
 [profiles]
   [[default]]
-    background_image = None
     cursor_color = "#04ff00"
     font = Monospace 9
     foreground_color = "#00ff00"
-    scroll_on_output = False
-    scrollback_infinite = True
+    scrollback_lines = 500000
     use_system_font = False

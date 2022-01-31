@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+#so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
+stty -ixon
+
 PATH="$PATH:/home/matt/bin"
 PATH="$PATH:/opt/altera/quartus/bin"
 PATH="$PATH:/opt/altera/modelsim_ae/bin/"
@@ -58,7 +61,7 @@ function edit() {
 function editbrc() { edit ~/.bourne-shell-compatible-rc "$@"; }
 
 function gerp() { grep "$@"; }
-alias grep="grep --color=always"
+
 function trim_whitespace() {
 	echo "$1" | awk '{gsub(/(^ +)|( +$)/,"")} {print $0}'
 }
@@ -179,6 +182,7 @@ function cdar() { cd *"$@"* ; }
 function cdrecent() { cd $(find ./ -maxdepth 1 -type d -regex \"\\\\./[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-.*\" | sort | tail -n 1 - ) "$@"; }
 function cdlast() { cd $(find ./ -maxdepth 1 -type d | tail -n 1 - ) "$@"; }
 function cd..() { cd ".." "$@"; }
+function cdhere() { cd "$(pwd)"; }
 
 function decolour() { echo -ne '\e[0m' "$@"; }
 

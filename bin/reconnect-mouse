@@ -1,22 +1,27 @@
-#!/usr/bin/env sh
-MAC='28:18:78:60:BB:63'
+#!/usr/bin/env bash
+the_MAC='28:18:78:60:BB:63'
 
-(
-	# echo "power off"
-
-	# echo "power on"
-
-	echo "remove $MAC";
-
-	echo "scan on"
-
-	sleep 2;
-
-	for i in $(seq 1 30); do
-		echo "connect $MAC";
-		sleep 0.5;
+function retry_until_message() {
+	echo -n "$1"
+	for ((i=0; i<120; ++i)); do
+		echo -n '.'
+		bluetoothctl $2 | tee /dev/stdout | grep $4 "$3" > /dev/null && echo && return 0
+		sleep .5
 	done
+	echo "failed!"
+	return 1
+}
 
-	echo "trust $MAC";
+rfkill unblock bluetooth
 
-) | bluetoothctl;
+sudo --non-interactive reset-bluetooth
+
+retry_until_message "Waiting for power on" "power on" "Changing power on succeeded"
+
+bluetoothctl remove "$the_MAC"
+bluetoothctl --timeout 60 scan on &
+
+retry_until_message "Waiting for device to show up" "devices" "$the_MAC"
+retry_until_message "Waiting for connection" "connect $the_MAC" "Connection successful"
+
+kill %1

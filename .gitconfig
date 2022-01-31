@@ -1,20 +1,39 @@
 [user]
 	email = walkerm930@gmail.com
-	name = Matthew J.P. Walker
-[push]
-	default = simple
+	name = Matthew J. P. Walker
 [alias]
 	st = status
 	diffc = diff --cached
-	loga = log --graph --oneline --all
-	stashk = shash --keep-index
+	logga = log --graph --oneline --all
+	logg = log --graph --oneline
+	stashk = stash --keep-index
+	rebi = rebase --interactive --autosquash
+	rebicg = rebase --interactive --autosquash --exec 'cgrame-make && cgrame-tests && git diff HEAD^ --check'
+	pushf = push --force-with-lease
+	headref = rev-parse HEAD
+	aamend = commit --amend --no-edit
+	comf = "!f() { git commit --fixup \"$@\"; }; f"
+	resetsh = reset --soft HEAD^
+	showl = show --date=local
+	comfc = "!f() { M=$1; shift; git commit -m \"fixup! $M\" \"$@\"; }; f"
+	fetchp = fetch --prune --all
+	mergeff = merge --ff-only
+	co = checkout
 [core]
 	excludesfile = /home/matt/.gitignore_global
 [gui]
 	warndetachedcommit = true
-	spellingdictionary = none
 	fontui = -family \"DejaVu Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 	fontdiff = -family \"DejaVu Sans Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 	tabsize = 4
 [rerere]
 	enabled = true
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = walkerm930@gmail.com
+	smtpServerPort = 587
+[credential]
+	helper = cache
+[diff]
+	wsErrorHighlight = all

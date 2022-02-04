@@ -97,17 +97,17 @@ bindsym $mod+l focus parent
 bindsym $mod+shift+L focus child
 
 # switch to workspace
-bindsym $mod+ampersand    workspace "1a"
-bindsym $mod+bracketleft  workspace "2a"
-bindsym $mod+braceleft    workspace "3a"
-bindsym $mod+braceright   workspace "4a"
-bindsym $mod+parenleft    workspace "5a"
-bindsym $mod+equal        workspace "6a"
+bindsym $mod+ampersand    workspace "11:1a"
+bindsym $mod+bracketleft  workspace "21:2a"
+bindsym $mod+braceleft    workspace "31:3a"
+bindsym $mod+braceright   workspace "41:4a"
+bindsym $mod+parenleft    workspace "51:5a"
+bindsym $mod+equal        workspace "61:6a"
 
-bindsym $mod+semicolon    workspace "1b"
-bindsym $mod+comma        workspace "2b"
-bindsym $mod+period       workspace "3b"
-bindsym $mod+p            workspace "4b"
+bindsym $mod+semicolon    workspace "12:1b"
+bindsym $mod+comma        workspace "22:2b"
+bindsym $mod+period       workspace "32:3b"
+bindsym $mod+p            workspace "42:4b"
 
 # move focus to next monitor
 bindsym $mod+m focus output right
@@ -117,17 +117,17 @@ bindsym $mod+Ctrl+m focus output down
 bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
-bindsym $mod+Shift+percent move container to workspace "1a"
-bindsym $mod+Shift+7       move container to workspace "2a"
-bindsym $mod+Shift+5       move container to workspace "3a"
-bindsym $mod+Shift+3       move container to workspace "4a"
-bindsym $mod+Shift+1       move container to workspace "5a"
-bindsym $mod+Shift+9       move container to workspace "6a"
+bindsym $mod+Shift+percent move container to workspace "11:1a"
+bindsym $mod+Shift+7       move container to workspace "21:2a"
+bindsym $mod+Shift+5       move container to workspace "31:3a"
+bindsym $mod+Shift+3       move container to workspace "41:4a"
+bindsym $mod+Shift+1       move container to workspace "51:5a"
+bindsym $mod+Shift+9       move container to workspace "61:6a"
 
-bindsym $mod+Shift+colon   move container to workspace "1b"
-bindsym $mod+Shift+less    move container to workspace "2b"
-bindsym $mod+Shift+greater move container to workspace "3b"
-bindsym $mod+Shift+P       move container to workspace "4b"
+bindsym $mod+Shift+colon   move container to workspace "12:1b"
+bindsym $mod+Shift+less    move container to workspace "22:2b"
+bindsym $mod+Shift+greater move container to workspace "32:3b"
+bindsym $mod+Shift+P       move container to workspace "42:4b"
 
 # move workspace to next monitor
 bindsym $mod+Shift+m move workspace to output right
@@ -169,6 +169,7 @@ bindsym $mod+g mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        strip_workspace_numbers yes
 }
 
 workspace_layout tabbed
